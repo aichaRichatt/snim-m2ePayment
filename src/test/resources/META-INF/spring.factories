@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = com.richatt.\
+    m2epayment.config.SqlTestContainersSpringContextCustomizerFactory
