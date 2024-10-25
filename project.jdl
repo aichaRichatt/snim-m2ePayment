@@ -1,0 +1,56 @@
+
+entity  Solde {
+    clientRef String required maxlength(20) 
+    clientName String maxlength(20)
+    clientFirstname String maxlength(20)
+    amount Double
+    updatingDate LocalDate
+}
+
+entity Payment {
+    transactionId String required maxlength(30)
+    paidAmount Double
+    phoneNumber String
+    payDate LocalDate
+    clientRef String maxlength(20)
+    walletMessage String maxlength(255)
+    sapMessage String maxlength(255)
+    payWallet String maxlength(64)
+    payWalletStatus String maxlength(64)
+    paySapStatus String maxlength(64)
+    
+
+}
+
+
+
+
+
+
+
+paginate all with pagination
+
+service all with serviceClass
+
+filter all
+
+
+
+
+
+
+
+
+// an ignored comment
+/** not an ignored comment */
+
+// Set pagination options
+
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

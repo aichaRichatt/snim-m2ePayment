@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (payment()) {
+      <div>
+        <h2 data-cy="paymentDetailsHeading"><span jhiTranslate="m2EPaymentApp.payment.detail.title">Payment</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ payment()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.transactionId">Transaction Id</span></dt>
+          <dd>
+            <span>{{ payment()!.transactionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.paidAmount">Paid Amount</span></dt>
+          <dd>
+            <span>{{ payment()!.paidAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ payment()!.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.payDate">Pay Date</span></dt>
+          <dd>
+            <span>{{ payment()!.payDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.clientRef">Client Ref</span></dt>
+          <dd>
+            <span>{{ payment()!.clientRef }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.walletMessage">Wallet Message</span></dt>
+          <dd>
+            <span>{{ payment()!.walletMessage }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.sapMessage">Sap Message</span></dt>
+          <dd>
+            <span>{{ payment()!.sapMessage }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.payWallet">Pay Wallet</span></dt>
+          <dd>
+            <span>{{ payment()!.payWallet }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.payWalletStatus">Pay Wallet Status</span></dt>
+          <dd>
+            <span>{{ payment()!.payWalletStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.payment.paySapStatus">Pay Sap Status</span></dt>
+          <dd>
+            <span>{{ payment()!.paySapStatus }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/payment', payment()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

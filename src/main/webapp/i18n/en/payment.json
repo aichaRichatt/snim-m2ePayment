@@ -1,0 +1,33 @@
+{
+  "m2EPaymentApp": {
+    "payment": {
+      "home": {
+        "title": "Payments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment",
+        "createOrEditLabel": "Create or edit a Payment",
+        "notFound": "No Payments found"
+      },
+      "created": "A new Payment is created with identifier {{ param }}",
+      "updated": "A Payment is updated with identifier {{ param }}",
+      "deleted": "A Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment"
+      },
+      "id": "ID",
+      "transactionId": "Transaction Id",
+      "paidAmount": "Paid Amount",
+      "phoneNumber": "Phone Number",
+      "payDate": "Pay Date",
+      "clientRef": "Client Ref",
+      "walletMessage": "Wallet Message",
+      "sapMessage": "Sap Message",
+      "payWallet": "Pay Wallet",
+      "payWalletStatus": "Pay Wallet Status",
+      "paySapStatus": "Pay Sap Status"
+    }
+  }
+}

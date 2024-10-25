@@ -1,0 +1,217 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-payment-heading" data-cy="PaymentCreateUpdateHeading" jhiTranslate="m2EPaymentApp.payment.home.createOrEditLabel">
+        Créer ou éditer un Payment
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="m2EPaymentApp.payment.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_transactionId" jhiTranslate="m2EPaymentApp.payment.transactionId">Transaction Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="transactionId"
+            id="field_transactionId"
+            data-cy="transactionId"
+            formControlName="transactionId"
+          />
+          @if (editForm.get('transactionId')!.invalid && (editForm.get('transactionId')!.dirty || editForm.get('transactionId')!.touched)) {
+            <div>
+              @if (editForm.get('transactionId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Ce champ est obligatoire.</small>
+              }
+              @if (editForm.get('transactionId')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '30' }"
+                  >Ce champ doit faire moins de 30 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_paidAmount" jhiTranslate="m2EPaymentApp.payment.paidAmount">Paid Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="paidAmount"
+            id="field_paidAmount"
+            data-cy="paidAmount"
+            formControlName="paidAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_phoneNumber" jhiTranslate="m2EPaymentApp.payment.phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_payDate" jhiTranslate="m2EPaymentApp.payment.payDate">Pay Date</label>
+          <div class="input-group">
+            <input
+              id="field_payDate"
+              data-cy="payDate"
+              type="text"
+              class="form-control"
+              name="payDate"
+              ngbDatepicker
+              #payDateDp="ngbDatepicker"
+              formControlName="payDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="payDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_clientRef" jhiTranslate="m2EPaymentApp.payment.clientRef">Client Ref</label>
+          <input type="text" class="form-control" name="clientRef" id="field_clientRef" data-cy="clientRef" formControlName="clientRef" />
+          @if (editForm.get('clientRef')!.invalid && (editForm.get('clientRef')!.dirty || editForm.get('clientRef')!.touched)) {
+            <div>
+              @if (editForm.get('clientRef')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >Ce champ doit faire moins de 20 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_walletMessage" jhiTranslate="m2EPaymentApp.payment.walletMessage">Wallet Message</label>
+          <input
+            type="text"
+            class="form-control"
+            name="walletMessage"
+            id="field_walletMessage"
+            data-cy="walletMessage"
+            formControlName="walletMessage"
+          />
+          @if (editForm.get('walletMessage')!.invalid && (editForm.get('walletMessage')!.dirty || editForm.get('walletMessage')!.touched)) {
+            <div>
+              @if (editForm.get('walletMessage')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '255' }"
+                  >Ce champ doit faire moins de 255 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sapMessage" jhiTranslate="m2EPaymentApp.payment.sapMessage">Sap Message</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sapMessage"
+            id="field_sapMessage"
+            data-cy="sapMessage"
+            formControlName="sapMessage"
+          />
+          @if (editForm.get('sapMessage')!.invalid && (editForm.get('sapMessage')!.dirty || editForm.get('sapMessage')!.touched)) {
+            <div>
+              @if (editForm.get('sapMessage')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '255' }"
+                  >Ce champ doit faire moins de 255 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_payWallet" jhiTranslate="m2EPaymentApp.payment.payWallet">Pay Wallet</label>
+          <input type="text" class="form-control" name="payWallet" id="field_payWallet" data-cy="payWallet" formControlName="payWallet" />
+          @if (editForm.get('payWallet')!.invalid && (editForm.get('payWallet')!.dirty || editForm.get('payWallet')!.touched)) {
+            <div>
+              @if (editForm.get('payWallet')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '64' }"
+                  >Ce champ doit faire moins de 64 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_payWalletStatus" jhiTranslate="m2EPaymentApp.payment.payWalletStatus"
+            >Pay Wallet Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="payWalletStatus"
+            id="field_payWalletStatus"
+            data-cy="payWalletStatus"
+            formControlName="payWalletStatus"
+          />
+          @if (
+            editForm.get('payWalletStatus')!.invalid && (editForm.get('payWalletStatus')!.dirty || editForm.get('payWalletStatus')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('payWalletStatus')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '64' }"
+                  >Ce champ doit faire moins de 64 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_paySapStatus" jhiTranslate="m2EPaymentApp.payment.paySapStatus">Pay Sap Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="paySapStatus"
+            id="field_paySapStatus"
+            data-cy="paySapStatus"
+            formControlName="paySapStatus"
+          />
+          @if (editForm.get('paySapStatus')!.invalid && (editForm.get('paySapStatus')!.dirty || editForm.get('paySapStatus')!.touched)) {
+            <div>
+              @if (editForm.get('paySapStatus')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '64' }"
+                  >Ce champ doit faire moins de 64 caractères.</small
+                >
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

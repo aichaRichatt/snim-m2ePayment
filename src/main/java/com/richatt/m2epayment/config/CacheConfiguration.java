@@ -41,6 +41,8 @@ public class CacheConfiguration {
             createCache(cm, com.richatt.m2epayment.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.richatt.m2epayment.repository.UserRepository.USERS_BY_EMAIL_CACHE);
             createCache(cm, com.richatt.m2epayment.domain.Authority.class.getName());
+            createCache(cm, com.richatt.m2epayment.domain.Solde.class.getName());
+            createCache(cm, com.richatt.m2epayment.domain.Payment.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

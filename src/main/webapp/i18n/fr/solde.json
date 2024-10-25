@@ -1,0 +1,28 @@
+{
+  "m2EPaymentApp": {
+    "solde": {
+      "home": {
+        "title": "Soldes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Solde",
+        "createOrEditLabel": "Créer ou éditer un Solde",
+        "notFound": "Aucun Solde trouvé"
+      },
+      "created": "Un nouveau Solde a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Solde avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Solde avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Solde {{ id }} ?"
+      },
+      "detail": {
+        "title": "Solde"
+      },
+      "id": "ID",
+      "clientRef": "Client Ref",
+      "clientName": "Client Name",
+      "clientFirstname": "Client Firstname",
+      "amount": "Amount",
+      "updatingDate": "Updating Date"
+    }
+  }
+}

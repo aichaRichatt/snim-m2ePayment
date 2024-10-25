@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (solde()) {
+      <div>
+        <h2 data-cy="soldeDetailsHeading"><span jhiTranslate="m2EPaymentApp.solde.detail.title">Solde</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ solde()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.solde.clientRef">Client Ref</span></dt>
+          <dd>
+            <span>{{ solde()!.clientRef }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.solde.clientName">Client Name</span></dt>
+          <dd>
+            <span>{{ solde()!.clientName }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.solde.clientFirstname">Client Firstname</span></dt>
+          <dd>
+            <span>{{ solde()!.clientFirstname }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.solde.amount">Amount</span></dt>
+          <dd>
+            <span>{{ solde()!.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="m2EPaymentApp.solde.updatingDate">Updating Date</span></dt>
+          <dd>
+            <span>{{ solde()!.updatingDate | formatMediumDate }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/solde', solde()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,26 @@
+@if (solde) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(solde.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="soldeDeleteDialogHeading" jhiTranslate="entity.delete.title">Confirmation de suppression</h4>
+
+      <span class="btn btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()"></span>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error></jhi-alert-error>
+      <p id="jhi-delete-solde-heading" jhiTranslate="m2EPaymentApp.solde.delete.question" [translateValues]="{ id: solde.id }">
+        Êtes-vous certain de vouloir supprimer le Solde {{ solde.id }} ?
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+      </button>
+
+      <button id="jhi-confirm-delete-solde" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Supprimer</span>
+      </button>
+    </div>
+  </form>
+}
